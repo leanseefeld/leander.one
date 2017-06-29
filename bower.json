@@ -1,0 +1,21 @@
+{
+  "name": "leander.one",
+  "description": "A personal website to provide a summary of my skills and demonstrate them at the same time.",
+  "main": "index.js",
+  "authors": [
+    "Leander Seefeld <leanseefeld@gmail.com>"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "personal-website"
+  ],
+  "homepage": "https://leander.one",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
