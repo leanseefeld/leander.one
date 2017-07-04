@@ -92,7 +92,7 @@ ul.skills {
 .skills>li {
   background-color: rgb(39, 163, 165);
   border-radius: 2px;
-  box-shadow: 0 2px 2px rgba(0,0,0,.2);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
   color: white;
   flex-grow: 1;
   margin: 6px 12px;
@@ -102,17 +102,52 @@ ul.skills {
   width: 126px;
 }
 
-em.tech, em.env, em.meth {
+em.tech, em.env, em.meth, .tech-em em {
   font-weight: bold;
 }
 
-em.tech {
+em.tech, .tech-em em {
   color: rgb(14, 168, 180);
   font-weight: bold;
 }
 
 em.env, em.meth {
   color: rgb(18, 130, 29);
+}
+
+.work .title>* {
+  margin-right: 8px;
+}
+
+.work .position {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.work .location {
+  font-size: 14px;
+}
+
+.work .title .time {
+  font-size: 14px;
+}
+
+.work .time .end::before {
+  content: ' - ';
+}
+
+.work .item:not(:last-child) {
+  margin-bottom: 2em;
+}
+
+.work .achievements {
+  margin-left: 2em;
+}
+
+.work .achievements li {
+  margin: 4px 8px;
+  list-style-type: disc;
 }
 
 @media (max-width:670px) {
