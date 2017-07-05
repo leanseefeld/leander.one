@@ -57,14 +57,21 @@ h2 {
 
 p {
   line-height: 1.2em;
-  margin: 0.5em 0;
   text-indent: 8px;
+}
+
+p:not(:last-child) {
+  margin: 0.5em 0;
 }
 
 a {
   color: inherit;
   font-weight: bold;
   text-decoration: none;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .main {
