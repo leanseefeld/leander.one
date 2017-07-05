@@ -140,25 +140,21 @@ em.env, em.meth {
   color: rgb(18, 130, 29);
 }
 
-.work .title>*,
-.education .title>* {
+.work .title>*, .education .title>* {
   margin-right: 8px;
 }
 
-.work .position,
-.education .course {
+.work .position, .education .course {
   display: block;
   font-size: 18px;
   font-weight: bold;
 }
 
-.work .location,
-.education .location {
+.work .location, .education .location {
   font-size: 14px;
 }
 
-.work .title .time,
-.education .title .time {
+.work .title .time, .education .title .time {
   font-size: 14px;
 }
 
@@ -177,6 +173,15 @@ em.env, em.meth {
 .work .achievements li {
   margin: 4px 8px;
   list-style-type: disc;
+}
+
+.contact .links {
+  list-style: disc;
+  margin-left: 2em;
+}
+
+.contact .links li {
+  margin: 8px;
 }
 
 @media (max-width:670px) {
