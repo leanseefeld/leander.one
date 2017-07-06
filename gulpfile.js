@@ -57,19 +57,30 @@ gulp.task('dist', ['clean'], function distTask(cb) {
     });
 });
 
-gulp.task('deploy', ['dist'] function deployTask() {
+const deploy = function deploy(force) {
   let ftp = require('vinyl-ftp'),
     gutil = require('gulp-util'),
     config = require('./ftp-config');
 
   config.log = gutil.log;
   let conn = ftp.create(config);
-  // using base = '.' will transfer everything to /public_html correctly
-  // turn off buffering in gulp.src for best performance
-  return gulp.src(DEST + '/**/*', {
+  let tasks = [
+    gulp.src(DEST + '/**/*', {
       base: './' + DEST,
       buffer: false
-    })
-    .pipe(conn.newer('/')) // only upload newer files
-    .pipe(conn.dest('/'));
+    }),
+    conn.dest('/')
+  ];
+  if (!force) {
+    tasks.splice(1, 0, conn.newer('/')); // only upload newer files
+  }
+  return pump(tasks);
+}
+
+gulp.task('deploy', ['dist'], function taskDeploy() {
+  return deploy();
+});
+
+gulp.task('force-deploy', ['dist'], function taskForceDeploy() {
+  return deploy(true);
 });
