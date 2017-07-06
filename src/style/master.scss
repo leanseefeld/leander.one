@@ -1,38 +1,39 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:700|Raleway');
+@import 'default';
+
 body {
-  background-color: #ededed;
-  color: #212121;
-  font-family: 'Raleway';
+  background-color: $ls-bg-color;
+  color: $ls-color;
+  font-family: $ls-body-font;
   height: 100%;
   width: 100%;
 }
 
-body>header {
+body > header {
   align-items: center;
   background-image: url('../img/digital-web-blue.jpg');
   background-size: cover;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  color: #ededed;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+  color: $ls-bg-color;
   display: flex;
   flex-wrap: wrap;
   padding: 18px;
 }
 
-body>header>* {
+body > header > * {
   margin: 24px;
-  transition: margin ease-in-out 200ms;
+  transition: margin $ls-transition;
 }
 
-body>header>.info {
-  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+body > header > .info {
+  text-shadow: 0 2px 2px rgba(0, 0, 0, .5);
 }
 
-body>header>.info>h1 {
+body > header > .info > h1 {
   font-size: 36px;
   margin-bottom: 8px;
 }
 
-header>.avatar {
+header > .avatar {
   border-radius: 50%;
   box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.38);
   display: inline-block;
@@ -40,33 +41,33 @@ header>.avatar {
   overflow: hidden;
 }
 
-header>.avatar>img {
+header > .avatar > img {
   height: 200px;
   width: 200px;
 }
 
-header>.actions>a {
-  background-color: rgba(2, 31, 28, 0.78);
+header > .actions > a {
+  background-color: rgba(2, 31, 28, .78);
   border: solid 1px #37cec3;
   border-radius: 4px;
   box-shadow: 0 2px 2px 2px rgba(0, 0, 0, .2);
   color: white;
   display: block;
-  font-family: 'Oswald';
+  font-family: $ls-header-font;
   font-size: 22px;
   padding: 12px 16px;
   text-transform: uppercase;
-  transition: background-color ease-in-out 200ms;
+  transition: background-color $ls-transition;
 }
 
-header>.actions>a:hover {
-  background-color: rgba(55, 206, 195, 0.7);
+header > .actions > a:hover {
+  background-color: rgba(55, 206, 195, .7);
 }
 
 h1 {
-  font-family: 'Oswald';
+  font-family: $ls-header-font;
   font-size: 28px;
-  margin-bottom: 0.5em;
+  margin-bottom: .5em;
 }
 
 h2 {
@@ -79,7 +80,7 @@ p {
 }
 
 p:not(:last-child) {
-  margin: 0.5em 0;
+  margin: .5em 0;
 }
 
 a {
@@ -99,13 +100,13 @@ a {
   padding: 24px 0;
 }
 
-.main>article {
-  background-color: #fdfdfd;
+.main > article {
+  background-color: $ls-article-bg-color;
   border-radius: 2px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   margin: 12px;
   padding: 24px;
-  transition: margin ease-in-out 200ms;
+  transition: margin $ls-transition;
   width: 900px;
 }
 
@@ -115,7 +116,7 @@ ul.skills {
   justify-content: center;
 }
 
-.skills>li {
+.skills > li {
   background-color: rgb(39, 163, 165);
   border-radius: 2px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
@@ -123,39 +124,48 @@ ul.skills {
   flex-grow: 1;
   margin: 6px 12px;
   max-width: 164px;
-  padding: 6px 0px;
+  padding: 6px 0;
   text-align: center;
   width: 126px;
 }
 
-em.tech, em.env, em.meth, .tech-em em {
+.tech-em em,
+em.env,
+em.meth,
+em.tech {
   font-weight: bold;
 }
 
-em.tech, .tech-em em {
+.tech-em em,
+em.tech {
   color: rgb(14, 168, 180);
   font-weight: bold;
 }
 
-em.env, em.meth {
+em.env,
+em.meth {
   color: rgb(18, 130, 29);
 }
 
-.work .title>*, .education .title>* {
+.education .title > *,
+.work .title > * {
   margin-right: 8px;
 }
 
-.work .position, .education .course {
+.education .course,
+.work .position {
   display: block;
   font-size: 18px;
   font-weight: bold;
 }
 
-.work .location, .education .location {
+.education .location,
+.work .location {
   font-size: 14px;
 }
 
-.work .title .time, .education .title .time {
+.education .title .time,
+.work .title .time {
   font-size: 14px;
 }
 
@@ -184,19 +194,21 @@ em.env, em.meth {
 .contact .links li {
   margin: 8px;
 }
-
-@media (max-width:670px) {
-  body>header {
+@media (max-width: 670px) {
+  body > header {
     justify-content: center;
     text-align: center;
   }
-  body>header>* {
+
+  body > header > * {
     margin: 8px;
   }
+
   .main {
     padding: 0;
   }
-  .main>article {
+
+  .main > article {
     margin: 0;
   }
 }
