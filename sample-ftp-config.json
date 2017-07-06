@@ -1,0 +1,6 @@
+{
+  "host":     "ftp.domain.com",
+  "user":     "username",
+  "password": "password",
+  "parallel": 10
+}

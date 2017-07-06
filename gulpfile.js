@@ -56,3 +56,20 @@ gulp.task('dist', ['clean'], function distTask(cb) {
       cb(result);
     });
 });
+
+gulp.task('deploy', ['dist'] function deployTask() {
+  let ftp = require('vinyl-ftp'),
+    gutil = require('gulp-util'),
+    config = require('./ftp-config');
+
+  config.log = gutil.log;
+  let conn = ftp.create(config);
+  // using base = '.' will transfer everything to /public_html correctly
+  // turn off buffering in gulp.src for best performance
+  return gulp.src(DEST + '/**/*', {
+      base: './' + DEST,
+      buffer: false
+    })
+    .pipe(conn.newer('/')) // only upload newer files
+    .pipe(conn.dest('/'));
+});
