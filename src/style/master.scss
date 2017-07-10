@@ -11,7 +11,7 @@ body {
   width: 100%;
 }
 
-body > header {
+body > .intro {
   align-items: center;
   background-size: cover;
   color: $ls-bg-color;
@@ -21,21 +21,51 @@ body > header {
   padding: 18px;
 }
 
-body > header > * {
+body > .intro > * {
   margin: 24px;
   transition: margin $ls-transition;
 }
 
-body > header > .info {
+body > .intro > .info {
   text-shadow: 0 2px 2px rgba(0, 0, 0, .5);
 }
 
-body > header > .info > h1 {
+body > .intro > .info > h1 {
   font-size: 36px;
   margin-bottom: 8px;
 }
 
-header > .avatar {
+header {
+  height: 66px;
+
+  nav {
+    background-color: rgba(0, 4, 16, 0.9);
+    position: fixed;
+    width: 100%;
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      margin: 24px auto;
+
+      a {
+        color: $ls-menu-color;
+        font-family: $ls-menu-font;
+        margin: 0 24px;
+        text-shadow: 0 0 12px rgba(0, 0, 0, .7);
+        text-transform: uppercase;
+        transition: color , text-shadow $ls-transition;
+
+        &:hover {
+          color: $ls-menu-color-hover;
+          text-shadow: 0 0 0 rgba(255,255,255,.4);
+        }
+      }
+    }
+  }
+}
+
+.intro > .avatar {
   border: solid 1px rgba(255, 255, 255, .3);
   box-shadow: 0 8px 20px 2px rgba(0, 0, 0, 0.3);
   display: inline-block;
@@ -43,13 +73,13 @@ header > .avatar {
   overflow: hidden;
 }
 
-header > .avatar > img {
+.intro > .avatar > img {
   $size: 300px;
   height: $size;
   width: $size;
 }
 
-header > .actions > a {
+.intro > .actions > a {
   background-color: rgba(2, 31, 28, .78);
   border: solid 1px #37cec3;
   border-radius: 4px;
@@ -63,7 +93,7 @@ header > .actions > a {
   transition: background-color $ls-transition;
 }
 
-header > .actions > a:hover {
+.intro > .actions > a:hover {
   background-color: rgba(55, 206, 195, .7);
 }
 
@@ -196,13 +226,13 @@ em.meth {
 .contact .links li {
   margin: 8px;
 }
-@media (max-width: 670px) {
-  body > header {
+@media (max-width: 690px) {
+  body > .intro {
     justify-content: center;
     text-align: center;
   }
 
-  body > header > * {
+  body > .intro > * {
     margin: 8px;
   }
 

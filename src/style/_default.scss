@@ -2,9 +2,12 @@
 
 $ls-bg-color: #ededed;
 $ls-color: #212121;
-$ls-article-bg-color: rgba(255, 255, 255, 0.77);
+$ls-article-bg-color: rgba(255, 255, 255, .77);
+$ls-menu-color: #bfbfbf;
+$ls-menu-color-hover: #fff;
 
 $ls-body-font: $raleway;
 $ls-header-font: $oswald;
+$ls-menu-font: $oswald;
 
 $ls-transition: ease-in-out 200ms;
