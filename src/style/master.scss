@@ -1,21 +1,23 @@
 @import 'default';
 
 body {
+  background: url('../img/bombinhas-rocks-blur30.jpg') center / cover no-repeat fixed;
   background-color: $ls-bg-color;
+  background-position: 50% 11%;
   color: $ls-color;
   font-family: $ls-body-font;
   height: 100%;
+  transition: background-position ease-in-out 400ms;
   width: 100%;
 }
 
 body > header {
   align-items: center;
-  background-image: url('../img/digital-web-blue.jpg');
   background-size: cover;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
   color: $ls-bg-color;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 18px;
 }
 
@@ -34,16 +36,17 @@ body > header > .info > h1 {
 }
 
 header > .avatar {
-  border-radius: 50%;
-  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.38);
+  border: solid 1px rgba(255, 255, 255, .3);
+  box-shadow: 0 8px 20px 2px rgba(0, 0, 0, 0.3);
   display: inline-block;
   line-height: 0;
   overflow: hidden;
 }
 
 header > .avatar > img {
-  height: 200px;
-  width: 200px;
+  $size: 300px;
+  height: $size;
+  width: $size;
 }
 
 header > .actions > a {
@@ -102,9 +105,8 @@ a {
 
 .main > article {
   background-color: $ls-article-bg-color;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  margin: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  margin: 24px 12px;
   padding: 24px;
   transition: margin $ls-transition;
   width: 900px;
