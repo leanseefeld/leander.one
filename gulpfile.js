@@ -5,7 +5,9 @@ let gulp = require('gulp'),
   sass = require('gulp-sass');
 
 const DEST = 'dist',
-  SASS_GLOB = 'src/style/**/*.scss';
+  SASS_GLOB = 'src/style/**/*.scss',
+  IMG_GLOB = 'src/img/*.*',
+  HTML_BLOB = 'src/**/*.html';
 
 gulp.task('sass', function sassTask() {
   return pump([
@@ -21,16 +23,24 @@ gulp.task('sass:watch', function sassWatch() {
 
 gulp.task('images', function imgTask() {
   return pump([
-    gulp.src('src/img/*.*'),
+    gulp.src(IMG_GLOB),
     gulp.dest(DEST + '/img')
   ]);
 });
 
+gulp.task('images:watch', function imagesWatch() {
+  gulp.watch(IMG_GLOB, ['images']);
+});
+
 gulp.task('html', function htmlTask() {
   return pump([
-    gulp.src('src/**/*.html'),
+    gulp.src(HTML_BLOB),
     gulp.dest(DEST)
   ]);
+});
+
+gulp.task('html:watch', function htmlWatch() {
+  gulp.watch(HTML_BLOB, ['html']);
 });
 
 gulp.task('clean', function cleanTask() {
@@ -56,6 +66,8 @@ gulp.task('dist', ['clean'], function distTask(cb) {
       cb(result);
     });
 });
+
+gulp.task('watch', ['images:watch', 'sass:watch', 'html:watch']);
 
 const deploy = function deploy(force) {
   let ftp = require('vinyl-ftp'),
