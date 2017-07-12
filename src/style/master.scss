@@ -92,7 +92,7 @@ header {
   height: 66px;
 
   nav {
-    background-color: rgba(0, 4, 16, 0.9);
+    background-color: $ls-blue-glass-color;
     position: fixed;
     width: 100%;
 
@@ -258,6 +258,18 @@ em.meth {
     }
   }
 }
+
+footer {
+  background-color: $ls-blue-glass-color;
+  color: $ls-light-color;
+  font-size: 14px;
+  padding: 24px;
+
+  > * {
+    margin: 0 auto;
+    max-width: 900px;
+  }
+}
 @media (max-width: 870px) {
   body {
     .intro {
@@ -291,7 +303,7 @@ em.meth {
     .intro,
     .main {
       > article {
-        margin: 0;
+        margin: 12px 0;
       }
     }
   }
