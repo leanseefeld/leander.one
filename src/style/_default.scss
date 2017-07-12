@@ -15,6 +15,7 @@ $ls-menu-font: $oswald;
 $ls-transition: ease-in-out 200ms;
 
 $ls-text-indent: 8px;
+$header-height: 66px;
 
 @mixin sprite-position($size, $index, $padding: 0) {
   $y: -$padding;
