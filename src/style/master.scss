@@ -2,9 +2,10 @@
 @import 'contact-icons';
 
 body {
-  background: url('../img/bombinhas-rocks-blur30.jpg') center / cover no-repeat fixed;
+  background: url('../img/bombinhas-rocks-blur30.jpg') no-repeat fixed;
   background-color: $ls-bg-color;
-  background-position: 50% 11%;
+  background-position: initial;
+  background-size: 100vw auto;
   color: $ls-color;
   font-family: $ls-body-font;
   height: 100%;
@@ -273,6 +274,11 @@ footer {
   > * {
     margin: 0 auto;
     max-width: 900px;
+  }
+}
+@media (orientation: portrait) {
+  body {
+    background-size: auto 100vh;
   }
 }
 @media (max-width: 870px) {
