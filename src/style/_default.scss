@@ -2,15 +2,18 @@
 
 $ls-bg-color: #ededed;
 $ls-color: #212121;
+$ls-light-color: #e7e7e7;
 $ls-article-bg-color: rgba(255, 255, 255, .77);
 $ls-menu-color: #bfbfbf;
-$ls-menu-color-hover: #fff;
+$ls-menu-color-hover: $ls-light-color;
 
 $ls-body-font: $raleway;
 $ls-header-font: $oswald;
 $ls-menu-font: $oswald;
 
 $ls-transition: ease-in-out 200ms;
+
+$ls-text-indent: 8px;
 
 @mixin sprite-position($size, $index, $padding: 0) {
   $y: -$padding;
