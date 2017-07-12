@@ -1,0 +1,42 @@
+@import 'default';
+
+.contact-icons {
+  display: block;
+  line-height: 0;
+
+  > li {
+    display: inline-block;
+  }
+
+  a {
+    background-image: url('../img/contact-icons_x32.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 32px;
+    margin: 4px;
+    opacity: .8;
+    transition: opacity $ls-transition;
+    width: 32px;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+  $img-size: 32px;
+  $img-padding: 5px;
+
+  .github {
+    // background-position: -5px -5px;
+    @include sprite-position($img-size, 1, $img-padding);
+  }
+
+  .instagram {
+    @include sprite-position($img-size, 2, $img-padding);
+    // background-position: -47px -5px;
+  }
+
+  .linkedin {
+    @include sprite-position($img-size, 3, $img-padding);
+    // background-position: -89px -5px;
+  }
+}

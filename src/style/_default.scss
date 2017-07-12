@@ -11,3 +11,8 @@ $ls-header-font: $oswald;
 $ls-menu-font: $oswald;
 
 $ls-transition: ease-in-out 200ms;
+
+@mixin sprite-position($size, $index, $padding: 0) {
+  $y: -$padding;
+  background-position: -($padding + $index * ($size + $padding * 2)) $y;
+}
