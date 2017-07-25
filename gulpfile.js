@@ -16,10 +16,22 @@ gulp.task('clean', function cleanTask() {
   });
 });
 
-gulp.task('dist', ['clean'], function distTask(cb) {
+const getWebpackCompiler = function getWebpackCompiler() {
   let webpack = require('webpack'),
-    config = require('./webpack.config');
-  return webpack(config, cb);
+  config = require('./webpack.config');
+  return webpack(config);
+};
+
+gulp.task('dist', ['clean'], function distTask(cb) {
+  return getWebpackCompiler().run(cb);
+});
+
+gulp.task('serve', function serveTask(cb) {
+  let WebpackDevServer = require('webpack-dev-server');
+  let compiler = getWebpackCompiler();
+
+  let server = new WebpackDevServer(compiler);
+  return server.listen(8080, "localhost");
 });
 
 const deploy = function deploy(force) {
