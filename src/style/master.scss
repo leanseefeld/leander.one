@@ -2,12 +2,12 @@
 @import 'contact-icons';
 
 body {
-  background: url('../img/bombinhas-rocks-blur30.jpg') no-repeat fixed;
-  background-color: $ls-bg-color;
-  background-position: initial;
+  background: url('../img/bombinhas-rocks.jpg') no-repeat fixed;
+  background-position: center;
   background-size: 100vw auto;
   color: $ls-color;
   font-family: $ls-body-font;
+  font-size: 16px;
   height: 100%;
   transition: background-position ease-in-out 400ms;
   width: 100%;
@@ -152,7 +152,9 @@ a {
 }
 
 .main {
-  background: radial-gradient(at 30% 0, rgba(208, 208, 208, .4), rgba(0, 0, 0, .4));
+  background: url('../img/bombinhas-rocks-blurred.jpg') no-repeat fixed;
+  background-position: center;
+  background-size: 100vw auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -276,12 +278,13 @@ footer {
     max-width: 900px;
   }
 }
-@media (orientation: portrait) {
+@media (orientation: portrait), (max-width: 1100px) {
+  .main,
   body {
     background-size: auto 100vh;
   }
 }
-@media (max-width: 870px) {
+@media ($ls-break-1) {
   body {
     .intro {
       justify-content: center;
