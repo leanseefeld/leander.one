@@ -9,6 +9,7 @@ html {
 body {
   background-color: $ls-bg-color;
   color: $ls-color;
+  display: flex;
   font-family: $ls-body-font;
   font-size: 16px;
   height: 100%;
@@ -19,119 +20,202 @@ body {
     background: url('../img/city-background.jpg') no-repeat fixed;
     background-position: center;
     background-size: 110vw auto;
-    filter: blur(3px);
+    filter: blur(5px);
     height: 100vh;
     position: fixed;
     width: 100vw;
     z-index: -1;
   }
 
-  > section {
-    padding: 18px;
-  }
+  .content {
+    flex-grow: 1;
+    height: 100%;
+    overflow: auto;
 
-  > .intro {
-    align-items: center;
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100vh;
-    justify-content: center;
-
-    .info {
-      align-items: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .7);
-      display: flex;
-      justify-content: space-between;
-      padding: 24px;
-      width: 900px;
+    > section {
+      padding: 18px;
     }
 
-    .details {
-      margin: 24px;
+    > .intro {
+      align-items: center;
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      min-height: 100vh;
 
-      .greeting,
-      h1,
-      h2 {
-        text-transform: uppercase;
+      .info {
+        align-items: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .7);
+        display: flex;
+        justify-content: space-between;
+        padding: 24px;
+        width: 900px;
       }
 
-      .greeting {
+      .details {
+        margin: 24px;
+
+        .greeting,
+        h1,
+        h2 {
+          text-transform: uppercase;
+        }
+
+        .greeting {
+          display: inline-block;
+          font-size: 22px;
+          line-height: 0;
+        }
+
+        > h1 {
+          font-size: 48px;
+          margin-bottom: 4px;
+        }
+
+        .summary {
+          margin: 24px 0;
+          text-indent: $ls-text-indent;
+        }
+      }
+
+      .avatar {
+        border: solid 1px rgba(255, 255, 255, .3);
+        box-shadow: 0 8px 20px 2px rgba(0, 0, 0, .3);
+        flex-shrink: 0;
+        line-height: 0;
+        margin: 24px;
+        overflow: hidden;
+
+        > img {
+          $size: 300px;
+          height: $size;
+          width: $size;
+        }
+      }
+
+      .download-cv {
+        background-color: $ls-color;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+        color: $ls-light-color;
         display: inline-block;
         font-size: 22px;
-        line-height: 0;
-      }
+        font-weight: normal;
+        margin: 8px 0;
+        padding: 8px 12px;
+        transition: background-color $ls-transition;
 
-      > h1 {
-        font-size: 48px;
-        margin-bottom: 4px;
-      }
-
-      .summary {
-        margin: 24px 0;
-        text-indent: $ls-text-indent;
-      }
-    }
-
-    .avatar {
-      border: solid 1px rgba(255, 255, 255, .3);
-      box-shadow: 0 8px 20px 2px rgba(0, 0, 0, .3);
-      flex-shrink: 0;
-      line-height: 0;
-      margin: 24px;
-      overflow: hidden;
-
-      > img {
-        $size: 300px;
-        height: $size;
-        width: $size;
-      }
-    }
-
-    .download-cv {
-      background-color: $ls-color;
-      box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
-      color: $ls-light-color;
-      display: inline-block;
-      font-size: 22px;
-      font-weight: normal;
-      margin: 8px 0;
-      padding: 8px 12px;
-      transition: background-color $ls-transition;
-
-      &:hover {
-        background-color: lighten($ls-color, 15%);
+        &:hover {
+          background-color: lighten($ls-color, 15%);
+        }
       }
     }
   }
 }
 
-header {
-  height: $header-height;
+.side-menu {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  font-family: $raleway;
+  font-size: 24px;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 230px;
+  z-index: 100;
 
-  nav {
+  &::before {
+    $shadow-color: rgba(0, 0, 0, .2);
     background-color: $ls-blue-glass-color;
-    position: fixed;
+    box-shadow: 2px 0 4px $shadow-color;
+    content: '';
+    height: 100%;
+    position: absolute;
     width: 100%;
-    z-index: 100;
+    z-index: -1;
+  }
 
-    .menu {
-      display: flex;
-      justify-content: center;
-      margin: 24px auto;
+  .menu-button {
+    cursor: pointer;
+    display: none;
+    flex-shrink: 0;
+    margin: 12px auto 12px 24px;
+    $this: &;
 
-      a {
-        color: $ls-menu-color;
-        font-family: $ls-menu-font;
-        margin: 0 24px;
-        text-shadow: 0 0 12px rgba(0, 0, 0, .7);
-        text-transform: uppercase;
-        transition: color , text-shadow $ls-transition;
+    > * {
+      background-color: $ls-menu-color;
+      height: 5px;
+      margin: 6px 0;
+      transition: .4s;
+      width: 35px;
+    }
 
-        &:hover {
-          color: $ls-menu-color-hover;
-          text-shadow: 0 0 0 rgba(255,255,255,.4);
-        }
+    &:hover > * {
+      background-color: $ls-menu-color-hover;
+    }
+  }
+
+  &.open {
+    height: 100%;
+
+    .menu-button {
+      .bar1 {
+        // Rotate first bar
+        transform: rotate(-45deg) translate(-9px, 9px);
+      }
+
+      .bar2 {
+        // Fade out the second bar
+        opacity: 0;
+        transform: translate(20px, 2px);
+        width: 0;
+      }
+
+      .bar3 {
+        // Rotate last bar
+        transform: rotate(45deg) translate(-6px, -6px);
+      }
+    }
+
+    .items {
+      align-items: center;
+      flex-grow: 1;
+    }
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: space-around;
+    margin: 24px;
+    overflow: hidden;
+
+    a {
+      color: $ls-menu-color;
+      font-weight: normal;
+      margin: 0 24px;
+      text-transform: uppercase;
+      transition: color , text-shadow $ls-transition;
+
+      &:hover {
+        $shadow-color: rgba(255, 255, 255, .3);
+        color: $ls-menu-color-hover;
+        text-shadow: 0 0 8px $shadow-color;
+      }
+    }
+  }
+  @media ($ls-break-1) {
+    .menu-button {
+      display: inline-block;
+    }
+
+    &:not(.open) {
+      .items {
+        height: 0;
+        margin: 0;
       }
     }
   }
@@ -290,7 +374,7 @@ footer {
     max-width: 900px;
   }
 }
-@media (orientation: portrait), (max-width: 1100px) {
+@media (orientation: portrait), (max-width: 690px) {
   body {
     .city-background {
       background-size: auto 110vh;
@@ -299,6 +383,13 @@ footer {
 }
 @media ($ls-break-1) {
   body {
+    flex-direction: column;
+
+    .side-menu {
+      height: 60px;
+      width: 100%;
+    }
+
     .intro {
       justify-content: center;
       text-align: center;

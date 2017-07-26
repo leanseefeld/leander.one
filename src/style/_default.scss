@@ -6,7 +6,7 @@ $ls-light-color: #e7e7e7;
 $ls-article-bg-color: rgba(255, 255, 255, .77);
 $ls-menu-color: #bfbfbf;
 $ls-menu-color-hover: $ls-light-color;
-$ls-blue-glass-color: rgba(0, 4, 16, .9);
+$ls-blue-glass-color: rgba(0, 4, 16, .7);
 $ls-dark-glass-color: rgba(0, 0, 0, .5);
 
 $ls-body-font: $raleway;
@@ -16,7 +16,8 @@ $ls-menu-font: $oswald;
 $ls-transition: ease-in-out 200ms;
 
 $ls-text-indent: 8px;
-$header-height: 66px;
+
+$ls-break-1: 'max-width: 870px';
 
 @mixin sprite-position($size, $index, $padding: 0) {
   $y: -$padding;
