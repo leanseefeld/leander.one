@@ -1,16 +1,30 @@
 @import 'default';
 @import 'contact-icons';
 
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  background: url('../img/bombinhas-rocks.jpg') no-repeat fixed;
-  background-position: center;
-  background-size: 100vw auto;
+  background-color: $ls-bg-color;
   color: $ls-color;
   font-family: $ls-body-font;
   font-size: 16px;
   height: 100%;
   transition: background-position ease-in-out 400ms;
   width: 100%;
+
+  .city-background {
+    background: url('../img/city-background.jpg') no-repeat fixed;
+    background-position: center;
+    background-size: 110vw auto;
+    filter: blur(3px);
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    z-index: -1;
+  }
 
   > section {
     padding: 18px;
@@ -21,8 +35,8 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
+    height: 100vh;
     justify-content: center;
-    min-height: calc(100vh - #{$header-height});
 
     .info {
       align-items: center;
@@ -152,9 +166,7 @@ a {
 }
 
 .main {
-  background: url('../img/bombinhas-rocks-blurred.jpg') no-repeat fixed;
-  background-position: center;
-  background-size: 100vw auto;
+  background: $ls-dark-glass-color;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -279,9 +291,10 @@ footer {
   }
 }
 @media (orientation: portrait), (max-width: 1100px) {
-  .main,
   body {
-    background-size: auto 100vh;
+    .city-background {
+      background-size: auto 110vh;
+    }
   }
 }
 @media ($ls-break-1) {
