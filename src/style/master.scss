@@ -198,10 +198,15 @@ body {
       text-transform: uppercase;
       transition: color , text-shadow $ls-transition;
 
+      &.active,
       &:hover {
         $shadow-color: rgba(255, 255, 255, .3);
         color: $ls-menu-color-hover;
         text-shadow: 0 0 8px $shadow-color;
+      }
+
+      &.active {
+        color: $ls-menu-color-active;
       }
     }
   }
